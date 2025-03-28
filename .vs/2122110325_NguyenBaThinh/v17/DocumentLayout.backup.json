@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NguyenBaThinh_2122110325_ASP.Net\\2122110325_NguyenBaThinh\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D97C4966-6E84-48AD-B818-713D576FE33D}|2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.csproj|d:\\nguyenbathinh_2122110325_asp.net\\2122110325_nguyenbathinh\\2122110325_nguyenbathinh\\2122110325_nguyenbathinh.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{D97C4966-6E84-48AD-B818-713D576FE33D}|2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.csproj|solutionrelative:2122110325_nguyenbathinh\\2122110325_nguyenbathinh.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "2122110325_NguyenBaThinh.http",
+              "DocumentMoniker": "D:\\NguyenBaThinh_2122110325_ASP.Net\\2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.http",
+              "RelativeDocumentMoniker": "2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.http",
+              "ToolTip": "D:\\NguyenBaThinh_2122110325_ASP.Net\\2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.http",
+              "RelativeToolTip": "2122110325_NguyenBaThinh\\2122110325_NguyenBaThinh.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-03-28T01:09:38.712Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
