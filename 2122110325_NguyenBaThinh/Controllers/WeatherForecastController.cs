@@ -1,9 +1,11 @@
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _2122110325_NguyenBaThinh.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    //[Authorize] // 🔐 Bảo vệ toàn bộ controller
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

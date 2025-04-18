@@ -170,4 +170,6 @@ D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBa
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\2122110325_NguyenBaThinh.pdb
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\obj\Debug\net8.0\2122110325_NguyenBaThinh.genruntimeconfig.cache
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\obj\Debug\net8.0\ref\2122110325_NguyenBaThinh.dll
+D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

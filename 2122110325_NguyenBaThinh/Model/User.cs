@@ -1,20 +1,22 @@
-﻿namespace _2122110325_NguyenBaThinh.Model
+﻿using _2122110325_NguyenBaThinh.Model;
+using System.Text.Json.Serialization;
+
+public class User
 {
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        public string Role { get; set; }
-        public DateTime CreatedAt { get; set; }
+    public int Id { get; set; }
+    public string FullName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string PasswordHash { get; set; } = null!;
+    public string? Phone { get; set; }
+    public string? Address { get; set; }
+    public string Role { get; set; } = "Customer";
+    public string Status { get; set; } = "Active";
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string? CreatedBy { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+    public string? UpdatedBy { get; set; }
 
-        // Navigation property
-        public ICollection<Order> Orders { get; set; }
-        public ICollection<Cart> Carts { get; set; }
-        public ICollection<Payment> Payments { get; set; }
-    }
-
+    public ICollection<Cart>? Carts { get; set; }
+    public ICollection<Order>? Orders { get; set; }
 }
+

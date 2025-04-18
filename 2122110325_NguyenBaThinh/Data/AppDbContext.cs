@@ -7,8 +7,11 @@ namespace _2122110325_NguyenBaThinh.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        // DbSets for each model
         public DbSet<Product> Products { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -20,25 +23,16 @@ namespace _2122110325_NguyenBaThinh.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Thiết lập kiểu dữ liệu cho các thuộc tính decimal
-            modelBuilder.Entity<Order>()
-                .Property(o => o.TotalPrice)
-                .HasPrecision(18, 2);
+            // Configure precision
+            modelBuilder.Entity<Order>().Property(o => o.TotalAmount).HasPrecision(18, 2);
 
-            modelBuilder.Entity<OrderDetail>()
-                .Property(od => od.Price)
-                .HasPrecision(18, 2);
+            modelBuilder.Entity<OrderDetail>().Property(od => od.UnitPrice).HasPrecision(18, 2);
 
-            modelBuilder.Entity<Payment>()
-                .Property(p => p.Amount)
-                .HasPrecision(18, 2);
+            modelBuilder.Entity<Payment>().Property(p => p.Amount).HasPrecision(18, 2);
 
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Price)
-                .HasPrecision(18, 2);
+            modelBuilder.Entity<Product>().Property(p => p.Price).HasPrecision(18, 2);
 
-            // ------------------ Cấu hình quan hệ ------------------
-
+            // Relationships
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)
@@ -63,23 +57,37 @@ namespace _2122110325_NguyenBaThinh.Data
                 .HasForeignKey(c => c.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Cart>()
-                .HasOne(c => c.Product)
-                .WithMany(p => p.Carts)
-                .HasForeignKey(c => c.ProductId)
+           
+
+            // Creator, Updater, Deleter for Product
+           
+            // Product → Brand & Category
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Brand)
+                .WithMany(b => b.Products)
+                .HasForeignKey(p => p.BrandId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+           
+           
+            // CartItem → Cart, Product
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Cart)
+                .WithMany(c => c.CartItems)
+                .HasForeignKey(ci => ci.CartId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Payment>()
-                .HasOne(p => p.Order)
-                .WithMany(o => o.Payments)
-                .HasForeignKey(p => p.OrderId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<Payment>()
-                .HasOne(p => p.User)
-                .WithMany(u => u.Payments)
-                .HasForeignKey(p => p.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Product)
+                .WithMany(p => p.CartItems)
+                .HasForeignKey(ci => ci.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

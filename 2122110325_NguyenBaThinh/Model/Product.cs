@@ -1,21 +1,28 @@
-﻿namespace _2122110325_NguyenBaThinh.Model
+﻿using _2122110325_NguyenBaThinh.Data;
+using _2122110325_NguyenBaThinh.Model;
+using System.ComponentModel.DataAnnotations.Schema;
+
+public class Product
 {
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
-        public int? CategoryId { get; set; }
-        public string Image { get; set; }
-        public DateTime CreatedAt { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; } = null!;
+    public string? Description { get; set; }
+    public decimal Price { get; set; }
+    public decimal? SalePrice { get; set; }
+    public int Stock { get; set; } = 0;
+    public int? BrandId { get; set; }
+    public int? CategoryId { get; set; }
+    public string? ImageUrl { get; set; }
+    public string Status { get; set; } = "Available";
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string? CreatedBy { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+    public string? UpdatedBy { get; set; }
 
-        // Navigation property
-        public Category Category { get; set; }
-        public ICollection<OrderDetail> OrderDetails { get; set; }
-        public ICollection<Cart> Carts { get; set; }
-    }
+    public Brand? Brand { get; set; }
+    public Category? Category { get; set; }
 
-
+    public ICollection<CartItem>? CartItems { get; set; }
+    public ICollection<OrderDetail>? OrderDetails { get; set; }
 }
+
