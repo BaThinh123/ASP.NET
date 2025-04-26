@@ -173,3 +173,4 @@ D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBa
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\NguyenBaThinh_2122110325_ASP.Net\2122110325_NguyenBaThinh\2122110325_NguyenBaThinh\bin\Debug\net8.0\2122110325_NguyenBaThinh.staticwebassets.runtime.json

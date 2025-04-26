@@ -1,6 +1,7 @@
 ﻿using _2122110325_NguyenBaThinh.Data;
 using _2122110325_NguyenBaThinh.Model;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 public class Product
 {
@@ -21,8 +22,9 @@ public class Product
 
     public Brand? Brand { get; set; }
     public Category? Category { get; set; }
-
+    [JsonIgnore]
     public ICollection<CartItem>? CartItems { get; set; }
+    [JsonIgnore]
     public ICollection<OrderDetail>? OrderDetails { get; set; }
 }
 

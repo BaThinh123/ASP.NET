@@ -1,5 +1,5 @@
 ﻿using _2122110325_NguyenBaThinh.Model;
-using System;
+using System.Text.Json.Serialization;
 
 namespace _2122110325_NguyenBaThinh.Data
 {
@@ -15,7 +15,10 @@ namespace _2122110325_NguyenBaThinh.Data
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
 
+        [JsonIgnore] // ✅ Tránh vòng lặp Order → OrderDetails → Order
         public Order? Order { get; set; }
+
+        [JsonIgnore] // ✅ Nếu Product có OrderDetails thì vòng sẽ quay lại
         public Product? Product { get; set; }
     }
 }

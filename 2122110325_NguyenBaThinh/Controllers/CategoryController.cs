@@ -43,6 +43,12 @@ namespace _2122110325_NguyenBaThinh.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
+            // Kiểm tra các trường bắt buộc
+            if (string.IsNullOrEmpty(category.Name) || string.IsNullOrEmpty(category.Status))
+            {
+                return BadRequest("Tên và trạng thái là bắt buộc.");
+            }
+
             category.CreatedAt = DateTime.UtcNow;
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
@@ -52,17 +58,23 @@ namespace _2122110325_NguyenBaThinh.Controllers
 
         // PUT: api/Category/5
         [HttpPut("{id}")]
+
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
             if (id != category.Id)
             {
-                return BadRequest();
+                return BadRequest("ID không khớp.");
+            }
+
+            if (string.IsNullOrEmpty(category.Name) || string.IsNullOrEmpty(category.Status))
+            {
+                return BadRequest("Tên và trạng thái là bắt buộc.");
             }
 
             var existingCategory = await _context.Categories.FindAsync(id);
             if (existingCategory == null)
             {
-                return NotFound();
+                return NotFound("Danh mục không tồn tại.");
             }
 
             existingCategory.Name = category.Name;
@@ -71,10 +83,12 @@ namespace _2122110325_NguyenBaThinh.Controllers
             existingCategory.UpdatedAt = DateTime.UtcNow;
             existingCategory.UpdatedBy = category.UpdatedBy;
 
+            _context.Entry(existingCategory).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
+
 
         // DELETE: api/Category/5
         [HttpDelete("{id}")]

@@ -1,4 +1,7 @@
-﻿namespace _2122110325_NguyenBaThinh.Model
+﻿using System.Text.Json.Serialization;
+using _2122110325_NguyenBaThinh.Model;
+
+namespace _2122110325_NguyenBaThinh.Model
 {
     public class CartItem
     {
@@ -11,13 +14,9 @@
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
 
+        [JsonIgnore]
         public Cart? Cart { get; set; }
+
         public Product? Product { get; set; }
     }
 }
-
-
-
-
-  
-

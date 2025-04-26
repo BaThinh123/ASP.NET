@@ -1,4 +1,6 @@
-﻿namespace _2122110325_NguyenBaThinh.Model
+﻿using System.Text.Json.Serialization;
+
+namespace _2122110325_NguyenBaThinh.Model
 {
     public class Category
     {
@@ -11,6 +13,7 @@
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
 
+        [JsonIgnore] // ⛔ Tránh vòng lặp khi serialize
         public ICollection<Product>? Products { get; set; }
     }
 }

@@ -69,18 +69,24 @@ namespace _2122110325_NguyenBaThinh.Controllers
                 return NotFound();
             }
 
+            // Chỉ cập nhật các trường không liên quan đến mật khẩu
             existingUser.FullName = user.FullName;
             existingUser.Email = user.Email;
             existingUser.Phone = user.Phone;
             existingUser.Address = user.Address;
             existingUser.Role = user.Role;
+            existingUser.Status = user.Status;
             existingUser.UpdatedAt = DateTime.UtcNow;
-            existingUser.UpdatedBy = user.UpdatedBy;
 
+            // Kiểm tra nếu mật khẩu mới có trong yêu cầu, mới mã hóa và cập nhật
             if (!string.IsNullOrWhiteSpace(user.PasswordHash))
             {
+                // Nếu có mật khẩu mới thì mã hóa và lưu lại
                 existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
             }
+
+            // Không thay đổi mật khẩu nếu trường PasswordHash không có trong yêu cầu
+            existingUser.UpdatedBy = user.UpdatedBy;
 
             await _context.SaveChangesAsync();
 

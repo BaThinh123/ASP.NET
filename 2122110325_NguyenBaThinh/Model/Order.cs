@@ -1,5 +1,5 @@
-﻿using _2122110325_NguyenBaThinh.Data;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Text.Json.Serialization;
+using _2122110325_NguyenBaThinh.Data;
 
 namespace _2122110325_NguyenBaThinh.Model
 {
@@ -16,10 +16,15 @@ namespace _2122110325_NguyenBaThinh.Model
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
 
+        [JsonIgnore] // ✅ Tránh vòng lặp Order → User → Orders → Order
         public User? User { get; set; }
+
+        [JsonIgnore] // ✅ Tránh vòng lặp Order → Cart → Orders → Order
         public Cart? Cart { get; set; }
 
         public ICollection<OrderDetail>? OrderDetails { get; set; }
+
+        [JsonIgnore] // Nếu Payment có navigation ngược về Order thì nên thêm luôn
         public ICollection<Payment>? Payments { get; set; }
     }
 }

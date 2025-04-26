@@ -24,8 +24,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "register",
-        "Type": "_2122110325_NguyenBaThinh.Controllers.LoginModel",
+        "Name": "model",
+        "Type": "_2122110325_NguyenBaThinh.Controllers.RegisterModel",
         "IsRequired": true
       }
     ],

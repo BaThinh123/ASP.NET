@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text.Json.Serialization;
 using _2122110325_NguyenBaThinh.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -82,7 +81,17 @@ builder.Services.AddSwaggerGen(c =>
 // 4. Thêm controller
 builder.Services.AddControllers();
 
-// 5. Build app
+// 5. Cấu hình CORS (nếu cần)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // 6. Swagger UI
@@ -94,8 +103,10 @@ if (app.Environment.IsDevelopment())
 
 // 7. Middlewares
 app.UseHttpsRedirection();
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+app.UseCors("AllowAll"); // CORS nếu cần
+app.UseAuthentication();  // Cấu hình xác thực
+app.UseAuthorization();   // Cấu hình phân quyền
+app.MapControllers();     // Bắt đầu định tuyến API
+
+// 8. Bắt đầu chạy ứng dụng
 app.Run();

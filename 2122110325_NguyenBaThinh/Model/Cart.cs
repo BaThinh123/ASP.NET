@@ -1,6 +1,4 @@
 ﻿using _2122110325_NguyenBaThinh.Model;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 public class Cart
@@ -14,6 +12,11 @@ public class Cart
     public string? UpdatedBy { get; set; }
 
     public User? User { get; set; }
+
+    [JsonIgnore]
     public ICollection<CartItem>? CartItems { get; set; }
+
+
+    [JsonIgnore] // ✅ Chặn serialize vòng lặp
     public ICollection<Order>? Orders { get; set; }
 }
